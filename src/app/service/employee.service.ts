@@ -15,7 +15,6 @@ export class EmployeeService {
   constructor(private firestore: AngularFirestore) {
     this.employeesCollection = firestore.collection<Employee>('employeeList');
 
-    // Use snapshotChanges to transform the data
     this.employees$ = this.employeesCollection.snapshotChanges().pipe(
       map(actions =>
         actions.map(a => {
